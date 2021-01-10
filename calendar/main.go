@@ -2,15 +2,26 @@ package main
 
 import (
 	"fmt"
-	"src/github.com/headfirstgo/encapsulationandembedding/calendar"
+	"log"
+
+	"github.com/headfirstgo/encapsulationandembedding/calendar"
 )
 
 func main() {
 	date := calendar.Date{}
-	date.Year = 2019
-	date.Month = 14
-	date.Day = 50
-	fmt.Println(date)
-	date = calendar.Date{Year: 0, Month: 0, Day: -2}
-	fmt.Println(date)
+	err := date.SetYear(1994)
+	if err != nil {
+		log.Fatal(err)
+	}
+	err = date.SetMonth(7)
+	if err != nil {
+		log.Fatal(err)
+	}
+	err = date.SetDay(3)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(date.Year())
+	fmt.Println(date.Month())
+	fmt.Println(date.Day())
 }
